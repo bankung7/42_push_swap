@@ -3,13 +3,20 @@
 int main(int argc, char **argv)
 {
     int i;
+    char **arr;
     ps_list *list;
 
     i = 1;
     list = 0;
     if (argc == 1)
         ft_exit("Not any number input");
-    list = ft_build(argv, 1);
+    if (argc == 2)
+    {
+        arr = ft_split(argv[1], ' ');
+        list = ft_build(arr, 0);
+    }
+    else
+        list = ft_build(argv, 1);
     ft_readlist(list);
     ft_freelist(list);
     return (0);
