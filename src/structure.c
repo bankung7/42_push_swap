@@ -1,44 +1,63 @@
 #include "../inc/push_swap.h"
 
-t_list  *ft_build(char **argv)
-{
-    int     i;
-    t_list  *list;
-    t_list  *node;
-
-    i = 1;
-    list = 0;
-    node = 0;
-    while (argv[i])
-    {
-        node = ft_lstnew((void *)argv[i]);
-        ft_lstadd_back(&list, node);
-        i++;
-    }
-    return (list);
-}
-
-void    ft_readnode(t_list *list)
+void    ft_readlist(ps_list *list)
 {
     while (list != 0)
     {
-        ft_printf("%s ", list->content);
+        ft_printf("%d", list->value);
         write(1, "\n", 1);
         list = list->next;
     }
-    ft_printf("read completed");
-    write(1, "\n", 1);
 }
 
-void    ft_freenode(t_list  *list)
+static int  ft_listsize(ps_list *list)
 {
-    t_list  *node;
+    int     i;
 
+    i = 0;
     while (list != 0)
     {
-        node = list->next;
-        free(list);
-        list = node;
+        list = list->next;
+        i++;
     }
-    ft_printf("free completed");
+    return (i);
+}
+
+static ps_list  *ft_newnode(char *str)
+{
+    ps_list *node;
+
+    node = malloc(sizeof(ps_list));
+    if (!node)
+        return (0);
+    node->next = 0;
+    node->value = ft_atoi(str);
+    return (node);
+}
+
+static void ft_listadd(ps_list **list, ps_list *new)
+{
+    ps_list *n;
+
+    n = *list;
+    if (*list)
+    {
+        while (n->next)
+            n = n->next;
+        n->next = new;
+    }
+    else
+        *list = new;
+}
+
+ps_list     *ft_build(char **arr, int i)
+{
+    ps_list *list;
+
+    list = 0;
+    while (arr[i])
+        ft_listadd(&list, ft_newnode(arr[i++]));
+    ft_printf("total %d node in this list", ft_listsize(list));
+    write(1, "\n", 1);
+    return (list);
 }
