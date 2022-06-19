@@ -31,7 +31,7 @@ OBJS = $(SRCS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	make -C $(LIBFT)
+	make bonus -C $(LIBFT)
 	cp $(LIBFT)/libft.a $(NAME)
 	ar -rcs $(NAME) $(OBJS)
 
