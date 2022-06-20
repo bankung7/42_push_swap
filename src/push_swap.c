@@ -21,6 +21,12 @@ int main(int argc, char **argv)
     else
         list = ft_build(argv, 1);
     ft_readlist(list);
+
+    ft_printf("=== before sorting ===");
+    write(1, "\n", 1);
+
+    ft_sort(&list);
+    ft_readlist(list);
     ft_freelist(list);
     return (0);
 }

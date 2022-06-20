@@ -1,17 +1,17 @@
 #include "../inc/push_swap.h"
 
-void    ft_sort(ps_list **list)
+void ft_sort(ps_list **list)
 {
     ps_list *n;
-    ps_list *head;
 
-    n = *list;
-    head = *list;
-    if (*list && list->next != 0)
+    while ((*list)->next)
     {
-        while (list->next != 0)
+        if ((*list)->value > (*list)->next->value)
         {
-
+            n = *list;
+            *list = n->next;
+            n->next = (*list)->next;
+            (*list)->next = n;
         }
     }
 }
