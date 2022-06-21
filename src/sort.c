@@ -2,16 +2,25 @@
 
 void ft_sort(ps_list **list)
 {
-    ps_list *n;
+	int	i;
+	ps_list *head;
 
-    while ((*list)->next)
-    {
-        if ((*list)->value > (*list)->next->value)
-        {
-            n = *list;
-            *list = n->next;
-            n->next = (*list)->next;
-            (*list)->next = n;
-        }
-    }
+	head = *list;
+	while (head->next)
+	{
+		if (head->value > head->next->value)
+		{
+			i = head->value;
+			head->value = head->next->value;
+			head->next->value = i;	
+			head = *list;
+		}
+		else if (head->value == head->next->value)
+		{
+			ft_freelist(*list);
+			ft_exit("there is duplicated number");
+		}
+		else
+			head = head->next;
+	}
 }

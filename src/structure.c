@@ -4,10 +4,10 @@ void    ft_readlist(ps_list *list)
 {
     while (list != 0)
     {
-        ft_printf("%d", list->value);
-        write(1, "\n", 1);
+        ft_printf("%d ", list->value);
         list = list->next;
     }
+    write(1, "\n", 1);
 }
 
 static int  ft_listsize(ps_list *list)

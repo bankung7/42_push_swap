@@ -27,6 +27,19 @@ int main(int argc, char **argv)
 
     ft_sort(&list);
     ft_readlist(list);
+
+    ft_swap(&list, 'a');
+    ft_readlist(list);
+
+    ft_rotate(&list, 'a');
+    ft_readlist(list);
+
+    ft_swap(&list, 'a');
+    ft_readlist(list);
+
+    ft_rrotate(&list, 'a');
+    ft_readlist(list);
+
     ft_freelist(list);
     return (0);
 }

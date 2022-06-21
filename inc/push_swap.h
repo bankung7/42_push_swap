@@ -19,5 +19,8 @@ void    ft_freelist(ps_list *list);
 void    ft_freearr(char **arr);
 int     ft_checkinput(char *str);
 void    ft_sort(ps_list **list);
+void	ft_swap(ps_list **list, char c);
+void	ft_rotate(ps_list **list, char c);
+void	ft_rrotate(ps_list **list, char c);
 
 # endif
