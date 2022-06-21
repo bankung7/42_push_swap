@@ -16,5 +16,8 @@ ps_list     *ft_build(char **arr, int i);
 void    ft_exit(char *str);
 void    ft_readlist(ps_list *list);
 void    ft_freelist(ps_list *list);
+void    ft_freearr(char **arr);
+int     ft_checkinput(char *str);
+void    ft_sort(ps_list **list);
 
 # endif
