@@ -21,7 +21,7 @@ $(NAME): $(OBJS)
 
 clean:
 	make clean -C $(LIBFT)
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) *.dSYM
 
 fclean: clean
 	make fclean -C $(LIBFT)

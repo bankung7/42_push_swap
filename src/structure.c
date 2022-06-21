@@ -68,10 +68,7 @@ ps_list     *ft_build(char **arr, int i)
     {
         node = ft_newnode(arr[i]);
         if (node == 0)
-        {
-            ft_freelist(list);
-            ft_exit("there is something wrong in input");
-        }
+            ft_exit("there is something wrong in input", list, 0);
         ft_listadd(&list, node);
         i++;
     }
