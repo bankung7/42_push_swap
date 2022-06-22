@@ -24,6 +24,9 @@ int main(int argc, char **argv)
     write(1, "\n", 1);
     ft_readlist(list);
 
+	ft_printf("n = %d", ft_lstsize(&list));
+    write(1, "\n", 1);
+
     ft_printf("=== before sorting ===");
     write(1, "\n", 1);
     ft_blogic(&list);
