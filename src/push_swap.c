@@ -24,9 +24,15 @@ int main(int argc, char **argv)
     write(1, "\n", 1);
     ft_readlist(list);
 
-    ft_printf("=== before sorting ===");
+    ft_printf("=== after sorting ===");
     write(1, "\n", 1);
-    ft_blogic(&list);
+    ft_sort(&list);
+    ft_readlist(list);
+
+    ft_printf("=== qualtile at 50 is %d", ft_findq(&list, 50));
+    write(1, "\n", 1);
+
+    ft_pushswap(&list);
     ft_readlist(list);
 
     ft_freelist(list);

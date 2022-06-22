@@ -10,7 +10,7 @@ void    ft_readlist(ps_list *list)
     write(1, "\n", 1);
 }
 
-static int  ft_listsize(ps_list *list)
+int  ft_listsize(ps_list *list)
 {
     int     i;
 
@@ -40,6 +40,7 @@ static ps_list  *ft_newnode(char *str)
         }
     }
     node->value = ft_atoi(str);
+    node->seq = ft_atoi(str);
     return (node);
 }
 

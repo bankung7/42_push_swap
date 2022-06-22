@@ -9,6 +9,7 @@
 typedef struct  p_list
 {
     int     value;
+    int     seq;
     struct  p_list  *next;
 }   ps_list;
 
@@ -23,6 +24,11 @@ void	ft_swap(ps_list **list, char c);
 void	ft_rotate(ps_list **list, char c);
 void	ft_rrotate(ps_list **list, char c);
 void    ft_blogic(ps_list **list);
+void ft_rsort(ps_list **list);
+int ft_findq(ps_list **list, int q);
+int  ft_listsize(ps_list *list);
+void	ft_push(ps_list **from, ps_list **to);
+void ft_pushswap(ps_list **list);
 
 
 # endif

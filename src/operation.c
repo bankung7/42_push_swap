@@ -43,3 +43,15 @@ void	ft_rrotate(ps_list **list, char c)
 	ft_printf("rr%c", c);
 	write(1, "\n", 1);	
 }
+
+void	ft_push(ps_list **from, ps_list **to)
+{
+	ps_list	*n;
+
+	n = (*from)->next;
+	(*from)->next = *to;
+	*to = *from;
+	*from = n;
+	ft_printf("pb");
+	write(1, "\n", 1);	
+}
