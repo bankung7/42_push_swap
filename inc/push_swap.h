@@ -1,34 +1,45 @@
 #ifndef PUSH_SWAP_H
 #define PUSH_SWAP_H
 
+#include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include "../libft/libft/libft.h"
 #include "../libft/includes/ft_printf.h"
 
-typedef struct  p_list
+typedef struct ps_list
 {
-    int     value;
-    int     seq;
-    struct  p_list  *next;
-}   ps_list;
+    int value;
+    int seq;
+    struct ps_list *next;
+} p_list;
 
-ps_list     *ft_build(char **arr, int i);
-void    ft_exit(char *str, ps_list *list, char **arr);
-void    ft_readlist(ps_list *list);
-void    ft_freelist(ps_list *list);
-void    ft_freearr(char **arr);
-int     ft_checkinput(char *str);
-void    ft_sort(ps_list **list);
-void	ft_swap(ps_list **list, char c);
-void	ft_rotate(ps_list **list, char c);
-void	ft_rrotate(ps_list **list, char c);
-void    ft_blogic(ps_list **list);
-void ft_rsort(ps_list **list);
-int ft_findq(ps_list **list, int q);
-int  ft_listsize(ps_list *list);
-void	ft_push(ps_list **from, ps_list **to);
-void ft_pushswap(ps_list **list);
+// main.c
+void ft_atob(p_list **stka, p_list **stkb, int size);
 
+// exit.c
+void ft_freelist(p_list **list);
+void ft_freearr(char **arr);
+void ft_exit(char *str);
 
-# endif
+// structure.c
+int ft_size(p_list **list);
+void ft_addlast(p_list **list, p_list *node);
+void ft_addfront(p_list **list, p_list *node);
+p_list *ft_new(char *str);
+
+// util.c
+void ft_read(p_list **list, char *str, char c);
+void ft_setseq(p_list **list, int n);
+int ft_getmid(p_list **list, int i);
+
+// sort.c
+int ft_issort(p_list **list, int type);
+
+// operations.c
+int ft_push(p_list **from, p_list **to, char c);
+int ft_swap(p_list **list, char c);
+int ft_rotate(p_list **list, char c);
+int ft_rrotate(p_list **list, char c);
+
+#endif

@@ -1,16 +1,49 @@
 #include "../inc/push_swap.h"
 
-int     ft_checkinput(char *str)
+void ft_read(p_list **list, char *str, char c)
 {
-    int     i;
+    p_list *head;
 
-    i = 0;
-    while (str[i])
+    head = *list;
+    ft_printf("%s => ", str);
+    while (head)
     {
-        if(ft_isdigit(str[i]) == 1)
-            i++;
+        if (c == 'v')
+            ft_printf("%d -> ", head->value);
         else
-            return (0);
+            ft_printf("%d -> ", head->seq);
+        head = head->next;
     }
-    return (1);
+    printf("\n");
+}
+
+void ft_setseq(p_list **list, int n)
+{
+    p_list *head;
+
+    head = *list;
+    if (head != 0)
+    {
+        while (head && n > 0)
+        {
+            head->seq = head->value;
+            head = head->next;
+            n--;
+        }
+    }
+}
+
+int ft_getmid(p_list **list, int i)
+{
+    p_list *head;
+
+    head = *list;
+    if (list == 0)
+        return (0);
+    while (i > 0)
+    {
+        head = head->next;
+        i--;
+    }
+    return (head->seq);
 }

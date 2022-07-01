@@ -1,57 +1,74 @@
 #include "../inc/push_swap.h"
 
-void	ft_swap(ps_list **list, char c)
+int ft_push(p_list **from, p_list **to, char c)
 {
-	ps_list	*n;
+    p_list *head;
 
-	n = (*list)->next;
-	(*list)->next = n->next;
-	n->next = (*list);
-	(*list) = n;
-	ft_printf("s%c", c);
-	write(1, "\n", 1);	
+    if (ft_size(from) > 0)
+    {
+        head = *from;
+        *from = (*from)->next;
+        head->next = *to;
+        *to = head;
+        ft_printf("p%c\n", c);
+        return (1);
+    }
+    return (0);
 }
 
-void	ft_rotate(ps_list **list, char c)
+int ft_swap(p_list **list, char c)
 {
-	ps_list	*n;
-	ps_list	*head;
+    int i;
+    p_list *head;
 
-	n = *list;
-	head = (*list)->next;
-	while ((*list)->next)
-		(*list) = (*list)->next;
-	n->next = 0;
-	(*list)->next = n;
-	(*list) = head;
-	ft_printf("r%c", c);
-	write(1, "\n", 1);	
+    if (ft_size(list) > 1)
+    {
+        head = *list;
+        i = head->value;
+        head->value = head->next->value;
+        head->next->value = i;
+        ft_printf("s%c\n", c);
+        return (1);
+    }
+    return (0);
 }
 
-void	ft_rrotate(ps_list **list, char c)
+int ft_rotate(p_list **list, char c)
 {
-	ps_list	*n;
-	ps_list *head;
+    p_list *n;
+    p_list *head;
 
-	n = *list;
-	while (n->next->next)
-		n = n->next;
-	head = n->next;
-	head->next = *list;
-	n->next = 0;
-	(*list) = head;
-	ft_printf("rr%c", c);
-	write(1, "\n", 1);	
+    if (ft_size(list) > 1)
+    {
+        head = *list;
+        n = *list;
+        while (head->next)
+            head = head->next;
+        *list = (*list)->next;
+        head->next = n;
+        n->next = 0;
+        ft_printf("r%c\n", c);
+        return (1);
+    }
+    return (0);
 }
 
-void	ft_push(ps_list **from, ps_list **to)
+int ft_rrotate(p_list **list, char c)
 {
-	ps_list	*n;
+    p_list *head;
+    p_list *n;
 
-	n = (*from)->next;
-	(*from)->next = *to;
-	*to = *from;
-	*from = n;
-	ft_printf("pb");
-	write(1, "\n", 1);	
+    if (ft_size(list) > 1)
+    {
+        head = *list;
+        n = *list;
+        while (head->next->next)
+            head = head->next;
+        *list = head->next;
+        head->next = 0;
+        (*list)->next = n;
+        ft_printf("rr%c\n", c);
+        return (1);
+    }
+    return (0);
 }

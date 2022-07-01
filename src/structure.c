@@ -1,79 +1,55 @@
 #include "../inc/push_swap.h"
 
-void    ft_readlist(ps_list *list)
+int ft_size(p_list **list)
 {
-    while (list != 0)
-    {
-        ft_printf("%d ", list->value);
-        list = list->next;
-    }
-    write(1, "\n", 1);
-}
-
-int  ft_listsize(ps_list *list)
-{
-    int     i;
+    int i;
+    p_list *head;
 
     i = 0;
-    while (list != 0)
+    head = *list;
+    while (head)
     {
-        list = list->next;
+        head = head->next;
         i++;
     }
     return (i);
 }
 
-static ps_list  *ft_newnode(char *str)
+p_list *ft_new(char *str)
 {
-    ps_list *node;
+    p_list *node;
 
-    node = malloc(sizeof(ps_list));
+    node = malloc(sizeof(p_list));
     if (!node)
         return (0);
-    node->next = 0;
-    if (ft_atoi(str) == 0)
-    {
-        if (ft_checkinput(str) == 0)
-        {
-            free(node);
-            return (0);
-        }
-    }
     node->value = ft_atoi(str);
-    node->seq = ft_atoi(str);
+    node->seq = node->value;
+    node->next = 0;
     return (node);
 }
 
-static void ft_listadd(ps_list **list, ps_list *new)
+void ft_addlast(p_list **list, p_list *node)
 {
-    ps_list *n;
+    p_list *head;
 
-    n = *list;
-    if (*list)
-    {
-        while (n->next)
-            n = n->next;
-        n->next = new;
-    }
+    head = *list;
+    if (*list == 0)
+        *list = node;
     else
-        *list = new;
+    {
+        while (head->next)
+            head = head->next;
+        head->next = node;
+    }
 }
 
-ps_list     *ft_build(char **arr, int i)
+void ft_addfront(p_list **list, p_list *node)
 {
-    ps_list *node;
-    ps_list *list;
-
-    list = 0;
-    while (arr[i])
+    if (*list == 0)
+        *list = node;
+    else
     {
-        node = ft_newnode(arr[i]);
-        if (node == 0)
-            ft_exit("there is something wrong in input", list, 0);
-        ft_listadd(&list, node);
-        i++;
+        node->next = *list;
+        *list = node;
     }
-    ft_printf("=== total %d node in this list ===", ft_listsize(list));
-    write(1, "\n", 1);
-    return (list);
 }
