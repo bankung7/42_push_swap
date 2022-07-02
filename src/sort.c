@@ -23,3 +23,8 @@ int ft_issort(p_list **list, int n)
     }
     return (s);
 }
+
+// void    ft_23node(p_list **list)
+// {
+
+// }

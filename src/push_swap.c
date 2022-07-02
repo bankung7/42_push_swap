@@ -84,27 +84,23 @@ void ft_atob(p_list **stka, p_list **stkb, int size)
 
 void ft_pushswap(p_list **list)
 {
+    int size;
     p_list *stka;
     p_list *stkb;
 
     stka = *list;
     stkb = 0;
-    ft_setseq(&stka, ft_size(&stka));
-
-    // printf("before pushswap\n");
-    // ft_read(&stka, "stack A", 'v');
-    // ft_read(&stkb, "stack B", 'v');
-
-    if (ft_issort(&stka, 1) > 0)
-        ft_atob(&stka, &stkb, ft_size(&stka));
-    else
-        ft_printf("All thing sorted\n");
-
-    // printf("after pushswap\n");
-    // ft_read(&stka, "stack A", 'v');
-    // ft_read(&stkb, "stack B", 'v');
-
-    *list = stka;
+    size = ft_size(list);
+    if (size > 1)
+    {
+        // ft_setseq(&stka, ft_size(&stka));
+        if (ft_issort(&stka, 1) > 0)
+            ft_atob(&stka, &stkb, size);
+        *list = stka;
+    }
+    // else if (size <= 3)
+    //     ft_small(stka, stkb));
+    ft_freelist(list);
 }
 
 int main(int argc, char **argv)
@@ -117,7 +113,7 @@ int main(int argc, char **argv)
     arr = 0;
     list = 0;
     if (argc <= 1)
-        ft_exit("Nothing turn in\n");
+        ft_exit("\n");
     if (argc == 2)
     {
         arr = ft_split(argv[1], ' ');
@@ -126,10 +122,7 @@ int main(int argc, char **argv)
         ft_freearr(arr);
     }
     else
-    {
         while (argv[i + 1])
             ft_addlast(&list, ft_new(argv[i++ + 1]));
-    }
     ft_pushswap(&list);
-    ft_freelist(&list);
 }
