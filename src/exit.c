@@ -1,5 +1,14 @@
 #include "../inc/push_swap.h"
 
+void ft_print_fd(char *str, int fd)
+{
+    int i;
+
+    i = 0;
+    while (str[i])
+        write(fd, &str[i++], 1);
+}
+
 void ft_freelist(p_list **list)
 {
     int i;
@@ -17,7 +26,7 @@ void ft_freelist(p_list **list)
             i++;
         }
     }
-    //printf("done free %d node\n", i);
+    // printf("done free %d node\n", i);
 }
 
 void ft_freearr(char **arr)
@@ -30,8 +39,12 @@ void ft_freearr(char **arr)
     free(arr);
 }
 
-void ft_exit(char *str)
+void ft_exit(char *str, p_list **list, char **arr)
 {
-    ft_printf("%s", str);
-    exit(0);
+    if (list != 0)
+        ft_freelist(list);
+    if (arr != 0)
+        ft_freearr(arr);
+    ft_print_fd(str, 2);
+    exit(2);
 }
