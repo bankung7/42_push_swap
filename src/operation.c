@@ -16,7 +16,7 @@ int ft_push(p_list **from, p_list **to, char c)
     return (0);
 }
 
-int ft_swap(p_list **list, char c)
+int ft_swap(p_list **list, char c, int p)
 {
     int i;
     p_list *head;
@@ -27,13 +27,14 @@ int ft_swap(p_list **list, char c)
         i = head->value;
         head->value = head->next->value;
         head->next->value = i;
-        ft_printf("s%c\n", c);
+        if (p == 1)
+            ft_printf("s%c\n", c);
         return (1);
     }
     return (0);
 }
 
-int ft_rotate(p_list **list, char c)
+int ft_rotate(p_list **list, char c, int p)
 {
     p_list *n;
     p_list *head;
@@ -47,13 +48,14 @@ int ft_rotate(p_list **list, char c)
         *list = (*list)->next;
         head->next = n;
         n->next = 0;
-        ft_printf("r%c\n", c);
+        if (p == 1)
+            ft_printf("r%c\n", c);
         return (1);
     }
     return (0);
 }
 
-int ft_rrotate(p_list **list, char c)
+int ft_rrotate(p_list **list, char c, int p)
 {
     p_list *head;
     p_list *n;
@@ -67,7 +69,8 @@ int ft_rrotate(p_list **list, char c)
         *list = head->next;
         head->next = 0;
         (*list)->next = n;
-        ft_printf("rr%c\n", c);
+        if (p == 1)
+            ft_printf("rr%c\n", c);
         return (1);
     }
     return (0);

@@ -13,8 +13,18 @@ typedef struct ps_list
     struct ps_list *next;
 } p_list;
 
+typedef struct p_inf
+{
+    p_list **stka;
+    p_list **stkb;
+    p_list **seqlist;
+    int i;
+    int n;
+    int mid;
+    int size;
+} p_info;
+
 // main.c
-void ft_atob(p_list **stka, p_list **stkb, int size);
 
 // parsing.c
 void ft_parsing(p_list **list, p_list **seqlist, int argc, char **argv);
@@ -31,22 +41,37 @@ void ft_addfront(p_list **list, p_list *node);
 p_list *ft_new(char *str);
 p_list *ft_newseq(int n);
 
+// small_sort.c
+void ft_small2(p_list **list, char t, int i);
+void ft_small3(p_list **list, char t);
+void ft_small5(p_list **stka, p_list **stkb, p_list *seqlist);
+
+// merge_sort.c
+void ft_atob(p_list **stka, p_list **stkb, p_list **seqlist, int size);
+void ft_btoa(p_list **stka, p_list **stkb, p_list **seqlist, int size);
+
+// insertion_sort.c
+
 // util.c
 void ft_read(p_list **list, char *str, char c);
-void ft_setseq(p_list **list, int n);
-int ft_getmid(p_list **list, int i);
 
 // sort.c
-int ft_issort(p_list **list, int type);
 int ft_csort(p_list **list);
 int ft_seqlist(p_list **list, p_list **seqlist);
-int ft_findmid(p_list **seqlist, int p);
+int ft_findmid(p_list **seqlist, int start, int p);
+int ft_findlowest(p_list **list, int size);
+int ft_checksort(p_list **list, int i);
 
 // operations.c
 int ft_push(p_list **from, p_list **to, char c);
-int ft_swap(p_list **list, char c);
-int ft_rotate(p_list **list, char c);
-int ft_rrotate(p_list **list, char c);
+int ft_swap(p_list **stka, char c, int p);
+int ft_rotate(p_list **list, char c, int p);
+int ft_rrotate(p_list **list, char c, int p);
+
+// operations2.c
+int ft_dswap(p_list **stka, p_list **stkb);
+int ft_drotate(p_list **stka, p_list **stkb);
+int ft_drrotate(p_list **stka, p_list **stkb);
 
 // check.c
 int ft_nonnum(char *str);

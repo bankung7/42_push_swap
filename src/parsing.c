@@ -1,17 +1,5 @@
 #include "../inc/push_swap.h"
 
-int ft_arrsize(char *arr)
-{
-    int i;
-
-    i = 0;
-    if (!arr)
-        return (0);
-    while (arr[i])
-        i++;
-    return (i);
-}
-
 void ft_parsing(p_list **list, p_list **seqlist, int argc, char **argv)
 {
     int i;

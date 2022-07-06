@@ -1,5 +1,17 @@
 #include "../inc/push_swap.h"
 
+int ft_arrsize(char *arr)
+{
+    int i;
+
+    i = 0;
+    if (!arr)
+        return (0);
+    while (arr[i])
+        i++;
+    return (i);
+}
+
 void ft_read(p_list **list, char *str, char c)
 {
     p_list *head;
@@ -17,33 +29,17 @@ void ft_read(p_list **list, char *str, char c)
     printf("\n");
 }
 
-void ft_setseq(p_list **list, int n)
+int ft_size(p_list **list)
 {
+    int i;
     p_list *head;
 
+    i = 0;
     head = *list;
-    if (head != 0)
-    {
-        while (head && n > 0)
-        {
-            head->seq = head->value;
-            head = head->next;
-            n--;
-        }
-    }
-}
-
-int ft_getmid(p_list **list, int i)
-{
-    p_list *head;
-
-    head = *list;
-    if (list == 0)
-        return (0);
-    while (i > 0)
+    while (head)
     {
         head = head->next;
-        i--;
+        i++;
     }
-    return (head->seq);
+    return (i);
 }
