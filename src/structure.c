@@ -1,23 +1,5 @@
 #include "../inc/push_swap.h"
 
-// struct info node
-p_info *ft_ninfo(void)
-{
-    p_info *node;
-
-    node = malloc(sizeof(p_info));
-    if (!node)
-        return (0);
-    node->stka = 0;
-    node->stkb = 0;
-    node->seqlist = 0;
-    node->i = 0;
-    node->n = 0;
-    node->size = 0;
-    node->size = 0;
-    return (node);
-}
-
 // create new seq node
 p_list *ft_newseq(int n)
 {
@@ -49,7 +31,6 @@ p_list *ft_new(char *str)
         return (0);
     }
     node->value = n;
-    node->seq = node->value;
     node->next = 0;
     return (node);
 }

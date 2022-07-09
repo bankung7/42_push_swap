@@ -63,9 +63,7 @@ int ft_findmid(p_list **seqlist, int start, int p)
     if (head == 0)
         return (-1);
     while (head->next && head->value != start)
-    {
         head = head->next;
-    }
     while (head->next && p > 0)
     {
         head = head->next;

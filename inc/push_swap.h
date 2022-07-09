@@ -9,20 +9,8 @@
 typedef struct ps_list
 {
     int value;
-    int seq;
     struct ps_list *next;
 } p_list;
-
-typedef struct p_inf
-{
-    p_list **stka;
-    p_list **stkb;
-    p_list **seqlist;
-    int i;
-    int n;
-    int mid;
-    int size;
-} p_info;
 
 // main.c
 
@@ -51,9 +39,14 @@ void ft_atob(p_list **stka, p_list **stkb, p_list **seqlist, int size);
 void ft_btoa(p_list **stka, p_list **stkb, p_list **seqlist, int size);
 
 // insertion_sort.c
+void ft_preinsert(p_list **stka, p_list **stkb, p_list *seqlist);
 
 // util.c
-void ft_read(p_list **list, char *str, char c);
+void ft_read(p_list **list, char *str);
+
+// util2.c
+int ft_nonnum(char *str);
+int ft_numerror(char *str, int n);
 
 // sort.c
 int ft_csort(p_list **list);
@@ -73,8 +66,5 @@ int ft_dswap(p_list **stka, p_list **stkb);
 int ft_drotate(p_list **stka, p_list **stkb);
 int ft_drrotate(p_list **stka, p_list **stkb);
 
-// check.c
-int ft_nonnum(char *str);
-int ft_numerror(char *str, int n);
 
 #endif

@@ -1,7 +1,9 @@
 push_swap.en.subject.pdf
 push_swap_checklist.txt
-checker_Mac
+checker
 /tester
 /2tester
 number
 note
+push_swap
+push_swap_*

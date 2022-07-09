@@ -12,7 +12,7 @@ int ft_arrsize(char *arr)
     return (i);
 }
 
-void ft_read(p_list **list, char *str, char c)
+void ft_read(p_list **list, char *str)
 {
     p_list *head;
 
@@ -20,10 +20,7 @@ void ft_read(p_list **list, char *str, char c)
     ft_printf("%s => ", str);
     while (head)
     {
-        if (c == 'v')
-            ft_printf("%d -> ", head->value);
-        else
-            ft_printf("%d -> ", head->seq);
+        ft_printf("%d -> ", head->value);
         head = head->next;
     }
     printf("\n");

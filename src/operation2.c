@@ -18,7 +18,7 @@ int ft_drotate(p_list **stka, p_list **stkb)
     {
         ft_rotate(stka, 'a', 0);
         ft_rotate(stkb, 'b', 0);
-        ft_printf("rs\n");
+        ft_printf("rr\n");
         return (1);
     }
     return (0);
@@ -30,7 +30,7 @@ int ft_drrotate(p_list **stka, p_list **stkb)
     {
         ft_rrotate(stka, 'a', 0);
         ft_rrotate(stkb, 'b', 0);
-        ft_printf("rrs\n");
+        ft_printf("rrr\n");
         return (1);
     }
     return (0);
