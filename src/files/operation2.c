@@ -1,4 +1,4 @@
-#include "../inc/push_swap.h"
+#include "../../inc/push_swap.h"
 
 int ft_dswap(p_list **stka, p_list **stkb)
 {

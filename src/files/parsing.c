@@ -1,4 +1,4 @@
-#include "../inc/push_swap.h"
+#include "../../inc/push_swap.h"
 
 void ft_parsing(p_list **list, p_list **seqlist, int argc, char **argv)
 {
@@ -21,6 +21,6 @@ void ft_parsing(p_list **list, p_list **seqlist, int argc, char **argv)
     if (ft_size(list) > 1 && ft_seqlist(list, seqlist) == -1)
     {
         ft_freelist(list);
-        ft_exit("Error\n", seqlist, 0);
+        ft_exit(2, "Error\n", seqlist, 0);
     }
 }

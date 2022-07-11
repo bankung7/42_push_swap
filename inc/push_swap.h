@@ -20,7 +20,7 @@ void ft_parsing(p_list **list, p_list **seqlist, int argc, char **argv);
 // exit.c
 void ft_freelist(p_list **list);
 void ft_freearr(char **arr);
-void ft_exit(char *str, p_list **list, char **arr);
+void ft_exit(int fd, char *str, p_list **list, char **arr);
 
 // structure.c
 int ft_size(p_list **list);

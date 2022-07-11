@@ -1,4 +1,4 @@
-#include "../inc/push_swap.h"
+#include "../../inc/push_swap.h"
 
 int ft_push(p_list **from, p_list **to, char c)
 {

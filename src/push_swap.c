@@ -10,7 +10,7 @@ void ft_pushswap(p_list **list, p_list **seqlist)
     stkb = 0;
     size = ft_size(list);
     if (size <= 1)
-        ft_exit("", list, 0);
+        ft_exit(1, "", list, 0);
     else if (size == 2)
         ft_small2(&stka, 'a', 1);
     else if (size == 3)
@@ -37,7 +37,7 @@ int main(int argc, char **argv)
     seqlist = 0;
     // No parameter passing in -> Display nothing
     if (argc == 1 || argv[1] == 0)
-        ft_exit("", 0, 0);
+        ft_exit(1, "", 0, 0);
     ft_parsing(&list, &seqlist, argc, argv);
     ft_pushswap(&list, &seqlist);
     ft_freelist(&list);

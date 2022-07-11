@@ -1,4 +1,4 @@
-#include "../inc/push_swap.h"
+#include "../../inc/push_swap.h"
 
 void ft_print_fd(char *str, int fd)
 {
@@ -39,12 +39,12 @@ void ft_freearr(char **arr)
     free(arr);
 }
 
-void ft_exit(char *str, p_list **list, char **arr)
+void ft_exit(int fd, char *str, p_list **list, char **arr)
 {
     if (list != 0)
         ft_freelist(list);
     if (arr != 0)
         ft_freearr(arr);
-    ft_print_fd(str, 2);
-    exit(2);
+    ft_print_fd(str, fd);
+    exit(0);
 }

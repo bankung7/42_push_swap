@@ -1,4 +1,4 @@
-#include "../inc/push_swap.h"
+#include "../../inc/push_swap.h"
 
 // create new seq node
 p_list *ft_newseq(int n)
@@ -41,7 +41,7 @@ void ft_addlast(p_list **list, p_list *node)
 
     head = *list;
     if (node == 0)
-        ft_exit("Error\n", list, 0);
+        ft_exit(2, "Error\n", list, 0);
     if (*list == 0)
         *list = node;
     else

@@ -1,4 +1,4 @@
-#include "../inc/push_swap.h"
+#include "../../inc/push_swap.h"
 
 int ft_btoaswap(p_list **stka, p_list **stkb, p_list **seqlist, int size)
 {
