@@ -21,57 +21,57 @@
 
 // ***** wait for fix t_ type struct ****** //
 
-typedef struct ps_list
+typedef struct s_stack
 {
 	int				value;
 	char			*inst;
-	struct ps_list	*next;
-}			p_list;
+	struct s_stack	*next;
+}			t_stk;
 
 // parsing.c
-void	ft_parsing(p_list **list, p_list **seqlist, int argc, char **argv);
+void	ft_parsing(t_stk **list, t_stk **seqlist, int argc, char **argv);
 
 // exit.c
-void	ft_freelist(p_list **list);
+void	ft_freelist(t_stk **list);
 void	ft_freearr(char **arr);
-void	ft_exit(int fd, char *str, p_list **list, p_list **list2);
+void	ft_exit(int fd, char *str, t_stk **list, t_stk **list2);
 
 // structure.c
-void	ft_addlast(p_list **list, p_list *node, p_list **seqlist, char **arr);
-p_list	*ft_new(char *str);
-p_list	*ft_newseq(int n);
-p_list	*ft_newinst(char *str);
+void	ft_addlast(t_stk **list, t_stk *node, t_stk **seqlist, char **arr);
+t_stk	*ft_new(char *str);
+t_stk	*ft_newseq(int n);
+t_stk	*ft_newinst(char *str);
 
 // small_sort.c
-void	ft_small2(p_list **list, char t, int i);
-void	ft_small3(p_list **list, char t);
-void	ft_small5(p_list **stka, p_list **stkb, p_list *seqlist);
+void	ft_small2(t_stk **list, char t, int i);
+void	ft_small3(t_stk **list, char t);
+void	ft_small5(t_stk **stka, t_stk **stkb, t_stk *seqlist);
 
 // merge_sort.c
-void	ft_atob(p_list **stka, p_list **stkb, p_list **seqlist, int size);
-void	ft_btoa(p_list **stka, p_list **stkb, p_list **seqlist, int size);
+void	ft_atob(t_stk **stka, t_stk **stkb, t_stk **seqlist, int size);
+void	ft_btoa(t_stk **stka, t_stk **stkb, t_stk **seqlist, int size);
 
 // util.c
-int		ft_size(p_list **list);
+int		ft_size(t_stk **list);
 int		ft_nonnum(char *str);
 int		ft_numerror(char *str, int n);
-void	ft_read(p_list **list, char *str, char t);
+void	ft_read(t_stk **list, char *str, char t);
 
 // sort.c
-int		ft_issort(p_list **list, int i);
-int		ft_csort(p_list **list);
-int		ft_seqlist(p_list **list, p_list **seqlist);
-int		ft_findmid(p_list **seqlist, int start, int p);
-int		ft_findlowest(p_list **list, int size);
+int		ft_issort(t_stk **list, int i);
+int		ft_csort(t_stk **list);
+int		ft_seqlist(t_stk **list, t_stk **seqlist);
+int		ft_findmid(t_stk **seqlist, int start, int p);
+int		ft_findlowest(t_stk **list, int size);
 
 // operations.c
-int		ft_push(p_list **from, p_list **to, char c, int p);
-int		ft_swap(p_list **stka, char c, int p);
-int		ft_rotate(p_list **list, char c, int p);
-int		ft_rrotate(p_list **list, char c, int p);
+int		ft_push(t_stk **from, t_stk **to, char c, int p);
+int		ft_swap(t_stk **stka, char c, int p);
+int		ft_rotate(t_stk **list, char c, int p);
+int		ft_rrotate(t_stk **list, char c, int p);
 
 // operations2.c
-int		ft_dswap(p_list **stka, p_list **stkb, int p);
-int		ft_drotate(p_list **stka, p_list **stkb, int p);
-int		ft_drrotate(p_list **stka, p_list **stkb, int p);
+int		ft_dswap(t_stk **stka, t_stk **stkb, int p);
+int		ft_drotate(t_stk **stka, t_stk **stkb, int p);
+int		ft_drrotate(t_stk **stka, t_stk **stkb, int p);
 #endif

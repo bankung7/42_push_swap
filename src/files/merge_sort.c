@@ -12,7 +12,7 @@
 
 #include "../../inc/push_swap.h"
 
-int	ft_btoaswap(p_list **stka, p_list **stkb, p_list **seqlist, int size)
+int	ft_btoaswap(t_stk **stka, t_stk **stkb, t_stk **seqlist, int size)
 {
 	int	i;
 	int	n;
@@ -37,7 +37,7 @@ int	ft_btoaswap(p_list **stka, p_list **stkb, p_list **seqlist, int size)
 	return (i);
 }
 
-void	ft_btoa(p_list **stka, p_list **stkb, p_list **seqlist, int size)
+void	ft_btoa(t_stk **stka, t_stk **stkb, t_stk **seqlist, int size)
 {
 	int	i;
 
@@ -65,7 +65,7 @@ void	ft_btoa(p_list **stka, p_list **stkb, p_list **seqlist, int size)
 	}
 }
 
-int	ft_atobswap(p_list **stka, p_list **stkb, p_list **seqlist, int size)
+int	ft_atobswap(t_stk **stka, t_stk **stkb, t_stk **seqlist, int size)
 {
 	int	i;
 	int	n;
@@ -86,7 +86,7 @@ int	ft_atobswap(p_list **stka, p_list **stkb, p_list **seqlist, int size)
 	return (i);
 }
 
-void	ft_atob(p_list **stka, p_list **stkb, p_list **seqlist, int size)
+void	ft_atob(t_stk **stka, t_stk **stkb, t_stk **seqlist, int size)
 {
 	int	i;
 

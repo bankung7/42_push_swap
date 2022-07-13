@@ -12,9 +12,9 @@
 
 #include "../../inc/push_swap.h"
 
-void	ft_read(p_list **list, char *str, char t)
+void	ft_read(t_stk **list, char *str, char t)
 {
-	p_list	*head;
+	t_stk	*head;
 
 	head = *list;
 	ft_printf("%s => ", str);
@@ -29,10 +29,10 @@ void	ft_read(p_list **list, char *str, char t)
 	ft_printf("\n");
 }
 
-int	ft_size(p_list **list)
+int	ft_size(t_stk **list)
 {
 	int		i;
-	p_list	*head;
+	t_stk	*head;
 
 	i = 0;
 	head = *list;

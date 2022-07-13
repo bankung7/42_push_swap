@@ -12,7 +12,7 @@
 
 #include "../../inc/push_swap.h"
 
-int	ft_dswap(p_list **stka, p_list **stkb, int p)
+int	ft_dswap(t_stk **stka, t_stk **stkb, int p)
 {
 	if (ft_size(stka) > 1 && ft_size(stkb) > 1)
 	{
@@ -25,7 +25,7 @@ int	ft_dswap(p_list **stka, p_list **stkb, int p)
 	return (0);
 }
 
-int	ft_drotate(p_list **stka, p_list **stkb, int p)
+int	ft_drotate(t_stk **stka, t_stk **stkb, int p)
 {
 	if (ft_size(stka) > 1 && ft_size(stkb) > 1)
 	{
@@ -38,7 +38,7 @@ int	ft_drotate(p_list **stka, p_list **stkb, int p)
 	return (0);
 }
 
-int	ft_drrotate(p_list **stka, p_list **stkb, int p)
+int	ft_drrotate(t_stk **stka, t_stk **stkb, int p)
 {
 	if (ft_size(stka) > 1 && ft_size(stkb) > 1)
 	{

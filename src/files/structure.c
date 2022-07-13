@@ -13,11 +13,11 @@
 #include "../../inc/push_swap.h"
 
 // create new instruction for checker
-p_list	*ft_newinst(char *str)
+t_stk	*ft_newinst(char *str)
 {
-	p_list	*node;
+	t_stk	*node;
 
-	node = malloc(sizeof(p_list));
+	node = malloc(sizeof(t_stk));
 	if (!node)
 		return (0);
 	node->value = 0;
@@ -27,11 +27,11 @@ p_list	*ft_newinst(char *str)
 }
 
 // create new seqlist node
-p_list	*ft_newseq(int n)
+t_stk	*ft_newseq(int n)
 {
-	p_list	*node;
+	t_stk	*node;
 
-	node = malloc(sizeof(p_list));
+	node = malloc(sizeof(t_stk));
 	if (!node)
 		return (0);
 	node->value = n;
@@ -41,14 +41,14 @@ p_list	*ft_newseq(int n)
 }
 
 // create new node 
-p_list	*ft_new(char *str)
+t_stk	*ft_new(char *str)
 {
 	int		n;
-	p_list	*node;
+	t_stk	*node;
 
 	if (ft_nonnum(str) == -1)
 		return (0);
-	node = malloc(sizeof(p_list));
+	node = malloc(sizeof(t_stk));
 	if (!node)
 		return (0);
 	n = ft_atoi(str);
@@ -64,9 +64,9 @@ p_list	*ft_new(char *str)
 	return (node);
 }
 
-void	ft_addlast(p_list **list, p_list *node, p_list **seqlist, char **arr)
+void	ft_addlast(t_stk **list, t_stk *node, t_stk **seqlist, char **arr)
 {
-	p_list	*head;
+	t_stk	*head;
 
 	head = *list;
 	if (node == 0)

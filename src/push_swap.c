@@ -12,11 +12,11 @@
 
 #include "../inc/push_swap.h"
 
-void	ft_pushswap(p_list **list, p_list **seqlist)
+void	ft_pushswap(t_stk **list, t_stk **seqlist)
 {
 	int		size;
-	p_list	*stka;
-	p_list	*stkb;
+	t_stk	*stka;
+	t_stk	*stkb;
 
 	stka = *list;
 	stkb = 0;
@@ -38,8 +38,8 @@ int	main(int argc, char **argv)
 {
 	int		i;
 	char	**arr;
-	p_list	*list;
-	p_list	*seqlist;
+	t_stk	*list;
+	t_stk	*seqlist;
 
 	i = 0;
 	arr = 0;

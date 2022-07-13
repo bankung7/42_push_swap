@@ -12,10 +12,10 @@
 
 #include "../../inc/push_swap.h"
 
-void	ft_freelist(p_list **list)
+void	ft_freelist(t_stk **list)
 {
 	int		i;
-	p_list	*head;
+	t_stk	*head;
 
 	i = 0;
 	head = *list;
@@ -43,7 +43,7 @@ void	ft_freearr(char **arr)
 	free(arr);
 }
 
-void	ft_exit(int fd, char *str, p_list **list, p_list **list2)
+void	ft_exit(int fd, char *str, t_stk **list, t_stk **list2)
 {
 	if (list != 0)
 		ft_freelist(list);

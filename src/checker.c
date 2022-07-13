@@ -12,7 +12,7 @@
 
 #include "../inc/push_swap.h"
 
-void	ft_runinst2(p_list **stka, p_list **stkb, char *inst)
+void	ft_runinst2(t_stk **stka, t_stk **stkb, char *inst)
 {
 	if (ft_strncmp("ss", inst, 2) == 0)
 		ft_dswap(stka, stkb, 0);
@@ -32,9 +32,9 @@ void	ft_runinst2(p_list **stka, p_list **stkb, char *inst)
 		ft_rotate(stkb, 'b', 0);
 }
 
-void	ft_runinst(p_list **stka, p_list **stkb, p_list **seqlist)
+void	ft_runinst(t_stk **stka, t_stk **stkb, t_stk **seqlist)
 {
-	p_list	*head;
+	t_stk	*head;
 
 	while (*seqlist)
 	{
@@ -57,7 +57,7 @@ void	ft_runinst(p_list **stka, p_list **stkb, p_list **seqlist)
 		ft_exit(1, "OK\n", stka, stkb);
 }
 
-void	ft_checkinst(p_list **list, p_list **seqlist, char *bf)
+void	ft_checkinst(t_stk **list, t_stk **seqlist, char *bf)
 {
 	int	n;
 
@@ -85,14 +85,14 @@ void	ft_checkinst(p_list **list, p_list **seqlist, char *bf)
 	}
 }
 
-void	ft_checker(p_list **list, p_list **seqlist)
+void	ft_checker(t_stk **list, t_stk **seqlist)
 {
 	char	*s;
-	p_list	*stkb;
+	t_stk	*stkb;
 
 	stkb = 0;
-    if (ft_issort(list, 1) == 0)
-        ft_exit(1, "OK\n", list, seqlist);
+	if (ft_issort(list, 1) == 0)
+		ft_exit(1, "OK\n", list, seqlist);
 	s = get_next_line(0);
 	while (s != 0)
 	{
@@ -108,8 +108,8 @@ int	main(int argc, char **argv)
 {
 	int		i;
 	char	**arr;
-	p_list	*list;
-	p_list	*seqlist;
+	t_stk	*list;
+	t_stk	*seqlist;
 
 	i = 0;
 	arr = 0;

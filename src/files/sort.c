@@ -12,9 +12,9 @@
 
 #include "../../inc/push_swap.h"
 
-int	ft_issort(p_list **list, int i)
+int	ft_issort(t_stk **list, int i)
 {
-	p_list	*head;
+	t_stk	*head;
 
 	head = *list;
 	while (head->next)
@@ -27,10 +27,10 @@ int	ft_issort(p_list **list, int i)
 	return (0);
 }
 
-int	ft_csort(p_list **list)
+int	ft_csort(t_stk **list)
 {
 	int		i;
-	p_list	*head;
+	t_stk	*head;
 
 	i = 0;
 	head = *list;
@@ -51,9 +51,9 @@ int	ft_csort(p_list **list)
 	return (0);
 }
 
-int	ft_seqlist(p_list **list, p_list **seqlist)
+int	ft_seqlist(t_stk **list, t_stk **seqlist)
 {
-	p_list	*head;
+	t_stk	*head;
 
 	head = *list;
 	while (head)
@@ -66,9 +66,9 @@ int	ft_seqlist(p_list **list, p_list **seqlist)
 	return (0);
 }
 
-int	ft_findmid(p_list **seqlist, int start, int p)
+int	ft_findmid(t_stk **seqlist, int start, int p)
 {
-	p_list	*head;
+	t_stk	*head;
 
 	head = *seqlist;
 	if (head == 0)
@@ -83,10 +83,10 @@ int	ft_findmid(p_list **seqlist, int start, int p)
 	return (head->value);
 }
 
-int	ft_findlowest(p_list **list, int size)
+int	ft_findlowest(t_stk **list, int size)
 {
 	int		i;
-	p_list	*head;
+	t_stk	*head;
 
 	i = -1;
 	head = *list;

@@ -12,7 +12,7 @@
 
 #include "../../inc/push_swap.h"
 
-void	ft_small2(p_list **list, char t, int i)
+void	ft_small2(t_stk **list, char t, int i)
 {
 	if (i == 1 && (*list)->value > (*list)->next->value)
 		ft_swap(list, t, 1);
@@ -20,7 +20,7 @@ void	ft_small2(p_list **list, char t, int i)
 		ft_swap(list, t, 1);
 }
 
-void	ft_small3(p_list **list, char t)
+void	ft_small3(t_stk **list, char t)
 {
 	int	a;
 	int	b;
@@ -41,11 +41,11 @@ void	ft_small3(p_list **list, char t)
 	}
 }
 
-void	ft_small5(p_list **stka, p_list **stkb, p_list *seqlist)
+void	ft_small5(t_stk **stka, t_stk **stkb, t_stk *seqlist)
 {
 	int		i;
 	int		mid;
-	p_list	*head;
+	t_stk	*head;
 
 	i = 2;
 	mid = ft_findmid(&seqlist, ft_findlowest(stka, 5), 2);

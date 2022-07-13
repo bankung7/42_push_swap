@@ -12,9 +12,9 @@
 
 #include "../../inc/push_swap.h"
 
-int	ft_push(p_list **from, p_list **to, char c, int p)
+int	ft_push(t_stk **from, t_stk **to, char c, int p)
 {
-	p_list	*head;
+	t_stk	*head;
 
 	if (ft_size(from) > 0)
 	{
@@ -29,10 +29,10 @@ int	ft_push(p_list **from, p_list **to, char c, int p)
 	return (0);
 }
 
-int	ft_swap(p_list **list, char c, int p)
+int	ft_swap(t_stk **list, char c, int p)
 {
 	int		i;
-	p_list	*head;
+	t_stk	*head;
 
 	if (ft_size(list) > 1)
 	{
@@ -47,10 +47,10 @@ int	ft_swap(p_list **list, char c, int p)
 	return (0);
 }
 
-int	ft_rotate(p_list **list, char c, int p)
+int	ft_rotate(t_stk **list, char c, int p)
 {
-	p_list	*n;
-	p_list	*head;
+	t_stk	*n;
+	t_stk	*head;
 
 	if (ft_size(list) > 1)
 	{
@@ -68,10 +68,10 @@ int	ft_rotate(p_list **list, char c, int p)
 	return (0);
 }
 
-int	ft_rrotate(p_list **list, char c, int p)
+int	ft_rrotate(t_stk **list, char c, int p)
 {
-	p_list	*head;
-	p_list	*n;
+	t_stk	*head;
+	t_stk	*n;
 
 	if (ft_size(list) > 1)
 	{
