@@ -1,5 +1,18 @@
 #include "../../inc/push_swap.h"
 
+p_list *ft_newinst(char *str)
+{
+    p_list *node;
+
+    node = malloc(sizeof(p_list));
+    if (!node)
+        return (0);
+    node->value = 0;
+    node->inst = str;
+    node->next = 0;
+    return (node);
+}
+
 // create new seq node
 p_list *ft_newseq(int n)
 {
@@ -9,6 +22,7 @@ p_list *ft_newseq(int n)
     if (!node)
         return (0);
     node->value = n;
+    node->inst = 0;
     node->next = 0;
     return (node);
 }
@@ -31,17 +45,22 @@ p_list *ft_new(char *str)
         return (0);
     }
     node->value = n;
+    node->inst = 0;
     node->next = 0;
     return (node);
 }
 
-void ft_addlast(p_list **list, p_list *node)
+void ft_addlast(p_list **list, p_list *node, p_list **seqlist, char **arr)
 {
     p_list *head;
 
     head = *list;
     if (node == 0)
-        ft_exit(2, "Error\n", list, 0);
+    {
+        if (arr != 0)
+            ft_freearr(arr);
+        ft_exit(2, "Error\n", list, seqlist);
+    }
     if (*list == 0)
         *list = node;
     else
@@ -49,16 +68,5 @@ void ft_addlast(p_list **list, p_list *node)
         while (head->next)
             head = head->next;
         head->next = node;
-    }
-}
-
-void ft_addfront(p_list **list, p_list *node)
-{
-    if (*list == 0)
-        *list = node;
-    else
-    {
-        node->next = *list;
-        *list = node;
     }
 }

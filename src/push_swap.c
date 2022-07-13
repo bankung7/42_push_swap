@@ -17,9 +17,7 @@ void ft_pushswap(p_list **list, p_list **seqlist)
         ft_small3(&stka, 'a');
     else if (size == 5)
         ft_small5(&stka, &stkb, *seqlist);
-    // else if (size <= 100)
-    //     ft_preinsert(&stka, &stkb, *seqlist);
-    else if (ft_checksort(&stka, 1) == -1)
+    else if (ft_issort(&stka, 1) == -1)
         ft_atob(&stka, &stkb, seqlist, size);
     *list = stka;
 }
@@ -42,4 +40,5 @@ int main(int argc, char **argv)
     ft_pushswap(&list, &seqlist);
     ft_freelist(&list);
     ft_freelist(&seqlist);
+    exit(0);
 }

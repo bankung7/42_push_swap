@@ -41,13 +41,13 @@ void ft_small5(p_list **stka, p_list **stkb, p_list *seqlist)
     while (i > 0)
     {
         if (head->value < mid)
-            i -= ft_push(stka, stkb, 'b');
+            i -= ft_push(stka, stkb, 'b', 1);
         else
             ft_rotate(stka, 'a', 1);
         head = *stka;
     }
     ft_small3(stka, 'a');
     ft_small2(stkb, 'b', -1);
-    ft_push(stkb, stka, 'a');
-    ft_push(stkb, stka, 'a');
+    ft_push(stkb, stka, 'a', 1);
+    ft_push(stkb, stka, 'a', 1);
 }

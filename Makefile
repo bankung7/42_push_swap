@@ -10,7 +10,7 @@ LIBFT = libft
 
 SRCS = src/push_swap.c $(wildcard src/files/*.c)
 
-SRCS_BONUS = src/checker.c $(wildcard src/files*.c)
+SRCS_BONUS = src/checker.c $(wildcard src/files/*.c)
 
 OBJS = $(SRCS:.c=.o)
 
@@ -30,11 +30,11 @@ bonus: $(OBJS_BONUS)
 
 clean:
 	make clean -C $(LIBFT)
-	$(RM) $(OBJS) *.dSYM
+	$(RM) $(OBJS) $(OBJS_BONUS) *.dSYM
 
 fclean: clean
 	make fclean -C $(LIBFT)
-	$(RM) $(NAME) $(LIBFT).a
+	$(RM) $(NAME) $(LIBFT).a checker
 
 re: fclean all
 

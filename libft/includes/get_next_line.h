@@ -18,8 +18,6 @@
 
 # include "../libft/libft.h"
 
-int BUFFER_SIZE = 42;
-
 char	*get_next_line(int fd);
 
 #endif

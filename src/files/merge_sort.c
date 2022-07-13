@@ -16,7 +16,7 @@ int ft_btoaswap(p_list **stka, p_list **stkb, p_list **seqlist, int size)
     while (i < (size / 2) + a)
     {
         if ((*stkb)->value >= mid)
-            i += ft_push(stkb, stka, 'a');
+            i += ft_push(stkb, stka, 'a', 1);
         else
             n += ft_rotate(stkb, 'b', 1);
     }
@@ -31,19 +31,19 @@ void ft_btoa(p_list **stka, p_list **stkb, p_list **seqlist, int size)
 
     i = 0;
     if (size == 1)
-        ft_push(stkb, stka, 'a');
+        ft_push(stkb, stka, 'a', 1);
     else if (size == 2)
     {
         if ((*stka)->value > (*stka)->next->value)
-            ft_dswap(stka, stkb);
+            ft_dswap(stka, stkb, 1);
         else if ((*stkb)->value < (*stkb)->next->value)
             ft_swap(stkb, 'b', 1);
-        ft_push(stkb, stka, 'a');
-        ft_push(stkb, stka, 'a');
+        ft_push(stkb, stka, 'a', 1);
+        ft_push(stkb, stka, 'a', 1);
     }
     else if (size > 2)
     {
-        if (ft_checksort(stkb, -1) == -1)
+        if (ft_issort(stkb, -1) == -1)
         {
             i = ft_btoaswap(stka, stkb, seqlist, size);
             ft_atob(stka, stkb, seqlist, i);
@@ -51,7 +51,7 @@ void ft_btoa(p_list **stka, p_list **stkb, p_list **seqlist, int size)
         }
         else
             while (size > 0)
-                size -= ft_push(stkb, stka, 'a');
+                size -= ft_push(stkb, stka, 'a', 1);
     }
 }
 
@@ -67,7 +67,7 @@ int ft_atobswap(p_list **stka, p_list **stkb, p_list **seqlist, int size)
     while (i < (size / 2))
     {
         if ((*stka)->value < mid)
-            i += ft_push(stka, stkb, 'b');
+            i += ft_push(stka, stkb, 'b', 1);
         else
             n += ft_rotate(stka, 'a', 1);
     }
@@ -85,7 +85,7 @@ void ft_atob(p_list **stka, p_list **stkb, p_list **seqlist, int size)
         ft_small2(stka, 'a', 1);
     else if (size > 2)
     {
-        if (ft_checksort(stka, 1) == -1)
+        if (ft_issort(stka, 1) == -1)
         {
             i = ft_atobswap(stka, stkb, seqlist, size);
             ft_atob(stka, stkb, seqlist, size - i);

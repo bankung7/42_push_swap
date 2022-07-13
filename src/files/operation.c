@@ -1,6 +1,6 @@
 #include "../../inc/push_swap.h"
 
-int ft_push(p_list **from, p_list **to, char c)
+int ft_push(p_list **from, p_list **to, char c, int p)
 {
     p_list *head;
 
@@ -10,7 +10,8 @@ int ft_push(p_list **from, p_list **to, char c)
         *from = (*from)->next;
         head->next = *to;
         *to = head;
-        ft_printf("p%c\n", c);
+        if (p == 1)
+            ft_printf("p%c\n", c);
         return (1);
     }
     return (0);

@@ -1,6 +1,6 @@
 #include "../../inc/push_swap.h"
 
-int ft_checksort(p_list **list, int i)
+int ft_issort(p_list **list, int i)
 {
     p_list *head;
 
@@ -39,7 +39,7 @@ int ft_csort(p_list **list)
     return (0);
 }
 
-// function which build a sorted list and usr for finding mid
+// function which build a sorted list and use for finding mid
 int ft_seqlist(p_list **list, p_list **seqlist)
 {
     p_list *head;
@@ -47,7 +47,7 @@ int ft_seqlist(p_list **list, p_list **seqlist)
     head = *list;
     while (head)
     {
-        ft_addlast(seqlist, ft_newseq(head->value));
+        ft_addlast(seqlist, ft_newseq(head->value), seqlist, 0);
         head = head->next;
     }
     if (ft_csort(seqlist) == -1)
