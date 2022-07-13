@@ -34,9 +34,7 @@ void ft_btoa(p_list **stka, p_list **stkb, p_list **seqlist, int size)
         ft_push(stkb, stka, 'a', 1);
     else if (size == 2)
     {
-        if ((*stka)->value > (*stka)->next->value)
-            ft_dswap(stka, stkb, 1);
-        else if ((*stkb)->value < (*stkb)->next->value)
+        if ((*stkb)->value < (*stkb)->next->value)
             ft_swap(stkb, 'b', 1);
         ft_push(stkb, stka, 'a', 1);
         ft_push(stkb, stka, 'a', 1);
