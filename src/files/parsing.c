@@ -1,0 +1,24 @@
+#include "../../inc/push_swap.h"
+
+void ft_parsing(p_list **list, p_list **seqlist, int argc, char **argv)
+{
+    int i;
+    char **arr;
+
+    i = 0;
+    arr = 0;
+    if (argc == 2)
+    {
+        arr = ft_split(argv[1], ' ');
+        while (arr[i])
+            ft_addlast(list, ft_new(arr[i++]), seqlist, arr);
+        ft_freearr(arr);
+    }
+    else
+        while (argv[i + 1])
+            ft_addlast(list, ft_new(argv[i++ + 1]), seqlist, arr);
+    if (ft_size(list) > 1 && ft_seqlist(list, seqlist) == -1)
+        ft_exit(2, "Error\n", seqlist, list);
+    if (ft_size(list) <= 1 || ft_issort(list, 1) == 0)
+        ft_exit(1, "", list, seqlist);
+}
