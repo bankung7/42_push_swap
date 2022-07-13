@@ -21,12 +21,12 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	make -C $(LIBFT)
 	cp libft/libftprintf.a $(LIBFT).a
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT).a -o $(NAME)
+	$(CC) $(CFLAGS) -g $(OBJS) $(LIBFT).a -o $(NAME)
 
 bonus: $(OBJS_BONUS)
 	make -C $(LIBFT)
 	cp libft/libftprintf.a $(LIBFT).a
-	$(CC) $(CFLAGS) $(OBJS_BONUS) $(LIBFT).a -o checker
+	$(CC) $(CFLAGS) -g $(OBJS_BONUS) $(LIBFT).a -o checker
 
 clean:
 	make clean -C $(LIBFT)
