@@ -6,7 +6,7 @@
 /*   By: vnilprap <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 11:27:44 by vnilprap          #+#    #+#             */
-/*   Updated: 2022/07/13 11:29:18 by vnilprap         ###   ########.fr       */
+/*   Updated: 2022/07/15 09:13:36 by vnilprap         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,10 @@ void	ft_small5(t_stk **stka, t_stk **stkb, t_stk *seqlist)
 	ft_push(stkb, stka, 'a', 1);
 }
 
-void ft_minisort(t_stk **stka, t_stk **stkb, int size)
+void	ft_minisort(t_stk **stka, t_stk **stkb, int size)
 {
-	int low;
-	int rot;
+	int	low;
+	int	rot;
 
 	rot = 0;
 	low = (*stka)->value;
@@ -77,22 +77,16 @@ void ft_minisort(t_stk **stka, t_stk **stkb, int size)
 		{
 			while (rot > 0)
 				rot -= ft_rrotate(stka, 'a', 1);
-			size -= ft_push(stkb, stka, 'a', 1);
-			low = (*stka)->value;
+			low = (*stkb)->value;
 		}
 		else if ((*stka)->value > (*stkb)->value)
-		{
 			while (rot > 0 && ft_findlast(stka) > (*stkb)->value)
 				rot -= ft_rrotate(stka, 'a', 1);
-			size -= ft_push(stkb, stka, 'a', 1);
-		}
 		else if ((*stka)->value < (*stkb)->value)
-		{
 			while ((*stka)->value < (*stkb)->value)
 				rot += ft_rotate(stka, 'a', 1);
-			size -= ft_push(stkb, stka, 'a', 1);
-		}
+		size -= ft_push(stkb, stka, 'a', 1);
 	}
 	while (rot > 0)
-			rot -= ft_rrotate(stka, 'a', 1);
+		rot -= ft_rrotate(stka, 'a', 1);
 }

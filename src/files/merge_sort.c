@@ -6,7 +6,7 @@
 /*   By: vnilprap <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 11:13:47 by vnilprap          #+#    #+#             */
-/*   Updated: 2022/07/13 11:22:50 by vnilprap         ###   ########.fr       */
+/*   Updated: 2022/07/15 09:21:12 by vnilprap         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ void	ft_btoa(t_stk **stka, t_stk **stkb, t_stk **seqlist, int size)
 	{
 		ft_push(stkb, stka, 'a', 1);
 		ft_push(stkb, stka, 'a', 1);
-        ft_small2(stka, 'a', 1);
+		ft_small2(stka, 'a', 1);
 	}
-    else if (size >= 3 && size <= 13)
-        ft_minisort(stka, stkb, size);
+	else if (size >= 3 && size <= 13)
+		ft_minisort(stka, stkb, size);
 	else if (size > 2)
 	{
 		if (ft_issort(stkb, -1) == -1)
@@ -71,23 +71,24 @@ int	ft_atobswap(t_stk **stka, t_stk **stkb, t_stk **seqlist, int size)
 	int	i;
 	int	n;
 	int	mid;
-    int sizeb;
+	int	sizeb;
 
 	i = 0;
 	n = 0;
 	mid = ft_findmid(seqlist, ft_findlowest(stka, size), (size / 2));
-    sizeb = ft_size(stkb);
+	sizeb = ft_size(stkb);
 	while (i < (size / 2))
 	{
 		if ((*stka)->value < mid)
 			i += ft_push(stka, stkb, 'b', 1);
 		else
-        {
-            if (sizeb == 0 && ft_size(stkb) > 1 && (*stkb)->value < ft_findmid(seqlist, ft_findlowest(seqlist, size), (size / 4)))
+		{
+			if (sizeb == 0 && ft_size(stkb) > 1 && (*stkb)->value
+				< ft_findmid(seqlist, ft_findlowest(seqlist, size), (size / 4)))
 				ft_drotate(stka, stkb, 1);
-            else
-			    n += ft_rotate(stka, 'a', 1);
-        }
+			else
+				n += ft_rotate(stka, 'a', 1);
+		}
 	}
 	while (size < ft_size(stka) && n > 0)
 		n -= ft_rrotate(stka, 'a', 1);

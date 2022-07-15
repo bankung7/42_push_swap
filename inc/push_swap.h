@@ -6,7 +6,7 @@
 /*   By: vnilprap <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 10:15:50 by vnilprap          #+#    #+#             */
-/*   Updated: 2022/07/13 10:23:47 by vnilprap         ###   ########.fr       */
+/*   Updated: 2022/07/15 09:02:35 by vnilprap         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 # include "../libft/libft/libft.h"
 # include "../libft/includes/ft_printf.h"
 # include "../libft/includes/get_next_line.h"
-
-// ***** wait for fix t_ type struct ****** //
 
 typedef struct s_stack
 {
@@ -46,7 +44,7 @@ t_stk	*ft_newinst(char *str);
 void	ft_small2(t_stk **list, char t, int i);
 void	ft_small3(t_stk **list, char t);
 void	ft_small5(t_stk **stka, t_stk **stkb, t_stk *seqlist);
-void ft_minisort(t_stk **stka, t_stk **stkb, int size);
+void	ft_minisort(t_stk **stka, t_stk **stkb, int size);
 
 // merge_sort.c
 void	ft_atob(t_stk **stka, t_stk **stkb, t_stk **seqlist, int size);
@@ -57,10 +55,9 @@ int		ft_size(t_stk **list);
 int		ft_nonnum(char *str);
 int		ft_numerror(char *str, int n);
 void	ft_read(t_stk **list, char *str, char t);
-int ft_caldis(int a, int b);
 
 // util2.c
-int ft_findlast(t_stk **list);
+int		ft_findlast(t_stk **list);
 int		ft_findmid(t_stk **seqlist, int start, int p);
 int		ft_findlowest(t_stk **list, int size);
 

@@ -6,7 +6,7 @@
 /*   By: vnilprap <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 11:25:12 by vnilprap          #+#    #+#             */
-/*   Updated: 2022/07/13 11:27:20 by vnilprap         ###   ########.fr       */
+/*   Updated: 2022/07/15 09:14:36 by vnilprap         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ int	ft_size(t_stk **list)
 }
 
 // non-numeric check
-// check if any string in input
 int	ft_nonnum(char *str)
 {
 	int	i;
@@ -65,8 +64,6 @@ int	ft_nonnum(char *str)
 }
 
 // number error check
-// check if double sign or only sign no digit
-// or exceed MAXINT
 int	ft_numerror(char *str, int n)
 {
 	int	i;
