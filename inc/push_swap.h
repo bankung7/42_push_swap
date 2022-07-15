@@ -46,6 +46,7 @@ t_stk	*ft_newinst(char *str);
 void	ft_small2(t_stk **list, char t, int i);
 void	ft_small3(t_stk **list, char t);
 void	ft_small5(t_stk **stka, t_stk **stkb, t_stk *seqlist);
+void ft_minisort(t_stk **stka, t_stk **stkb, int size);
 
 // merge_sort.c
 void	ft_atob(t_stk **stka, t_stk **stkb, t_stk **seqlist, int size);
@@ -56,13 +57,17 @@ int		ft_size(t_stk **list);
 int		ft_nonnum(char *str);
 int		ft_numerror(char *str, int n);
 void	ft_read(t_stk **list, char *str, char t);
+int ft_caldis(int a, int b);
+
+// util2.c
+int ft_findlast(t_stk **list);
+int		ft_findmid(t_stk **seqlist, int start, int p);
+int		ft_findlowest(t_stk **list, int size);
 
 // sort.c
 int		ft_issort(t_stk **list, int i);
 int		ft_csort(t_stk **list);
 int		ft_seqlist(t_stk **list, t_stk **seqlist);
-int		ft_findmid(t_stk **seqlist, int start, int p);
-int		ft_findlowest(t_stk **list, int size);
 
 // operations.c
 int		ft_push(t_stk **from, t_stk **to, char c, int p);

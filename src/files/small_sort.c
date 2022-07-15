@@ -63,3 +63,36 @@ void	ft_small5(t_stk **stka, t_stk **stkb, t_stk *seqlist)
 	ft_push(stkb, stka, 'a', 1);
 	ft_push(stkb, stka, 'a', 1);
 }
+
+void ft_minisort(t_stk **stka, t_stk **stkb, int size)
+{
+	int low;
+	int rot;
+
+	rot = 0;
+	low = (*stka)->value;
+	while (size > 0)
+	{
+		if ((*stkb)->value < low)
+		{
+			while (rot > 0)
+				rot -= ft_rrotate(stka, 'a', 1);
+			size -= ft_push(stkb, stka, 'a', 1);
+			low = (*stka)->value;
+		}
+		else if ((*stka)->value > (*stkb)->value)
+		{
+			while (rot > 0 && ft_findlast(stka) > (*stkb)->value)
+				rot -= ft_rrotate(stka, 'a', 1);
+			size -= ft_push(stkb, stka, 'a', 1);
+		}
+		else if ((*stka)->value < (*stkb)->value)
+		{
+			while ((*stka)->value < (*stkb)->value)
+				rot += ft_rotate(stka, 'a', 1);
+			size -= ft_push(stkb, stka, 'a', 1);
+		}
+	}
+	while (rot > 0)
+			rot -= ft_rrotate(stka, 'a', 1);
+}
