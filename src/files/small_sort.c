@@ -77,21 +77,19 @@ void ft_minisort(t_stk **stka, t_stk **stkb, int size)
 		{
 			while (rot > 0)
 				rot -= ft_rrotate(stka, 'a', 1);
-			size -= ft_push(stkb, stka, 'a', 1);
-			low = (*stka)->value;
+			low = (*stkb)->value;
 		}
 		else if ((*stka)->value > (*stkb)->value)
 		{
 			while (rot > 0 && ft_findlast(stka) > (*stkb)->value)
 				rot -= ft_rrotate(stka, 'a', 1);
-			size -= ft_push(stkb, stka, 'a', 1);
 		}
 		else if ((*stka)->value < (*stkb)->value)
 		{
 			while ((*stka)->value < (*stkb)->value)
 				rot += ft_rotate(stka, 'a', 1);
-			size -= ft_push(stkb, stka, 'a', 1);
 		}
+		size -= ft_push(stkb, stka, 'a', 1);
 	}
 	while (rot > 0)
 			rot -= ft_rrotate(stka, 'a', 1);
