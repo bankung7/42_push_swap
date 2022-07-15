@@ -44,13 +44,11 @@ int	ft_findlowest(t_stk **list, int size)
 	int		i;
 	t_stk	*head;
 
-	i = -1;
 	head = *list;
+	i = head->value;
 	while (size > 0)
 	{
-		if (i == -1)
-			i = head->value;
-		else if (i > head->value)
+		if (i > head->value)
 			i = head->value;
 		head = head->next;
 		size--;

@@ -21,9 +21,9 @@ void	ft_read(t_stk **list, char *str, char t)
 	while (head)
 	{
 		if (t == 'i')
-			ft_printf("%s -> ", head->inst);
+			ft_printf("%s ", head->inst);
 		else
-			ft_printf("%d -> ", head->value);
+			ft_printf("%d ", head->value);
 		head = head->next;
 	}
 	ft_printf("\n");
