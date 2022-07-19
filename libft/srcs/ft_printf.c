@@ -9,7 +9,7 @@
 /*   Updated: 2022/05/22 09:02:25 by vnilprap         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../includes/ft_printf.h"
+#include "../inc/ft_printf.h"
 
 int	ft_printf(const char *str, ...)
 {

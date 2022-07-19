@@ -28,7 +28,7 @@ void	ft_pushswap(t_stk **list, t_stk **seqlist)
 	else if (size == 3)
 		ft_small3(&stka, 'a');
 	else if (size == 5)
-		ft_small5(&stka, &stkb, *seqlist);
+		ft_small5(&stka, &stkb, seqlist);
 	else if (ft_issort(&stka, 1) == -1)
 		ft_atob(&stka, &stkb, seqlist, size);
 	*list = stka;

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/push_swap.h"
+#include "../inc/push_swap.h"
 
 void	ft_parsing(t_stk **list, t_stk **seqlist, int argc, char **argv)
 {

@@ -9,7 +9,7 @@
 /*   Updated: 2022/05/17 20:58:55 by vnilprap         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../includes/ft_printf.h"
+#include "../inc/ft_printf.h"
 
 static char	*ft_getdi(t_node *block, char *s)
 {

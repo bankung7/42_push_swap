@@ -9,7 +9,7 @@
 /*   Updated: 2022/05/18 21:58:42 by vnilprap         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../includes/ft_printf.h"
+#include "../inc/ft_printf.h"
 #include "../libft/libft.h"
 
 int	ft_geti(size_t n, int base)

@@ -9,7 +9,7 @@
 /*   Updated: 2022/05/17 20:58:15 by vnilprap         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../includes/ft_printf.h"
+#include "../inc/ft_printf.h"
 
 static int	ft_gettype(const char *str, va_list list, t_node *block)
 {

@@ -30,9 +30,9 @@ int	ft_atoi(const char *str)
 	}
 	while (str[i] && ft_isdigit(str[i]) != 0)
 	{
-		if (val * 10 + (str[i] - '0') > 2147483647 && m > 0)
+		if (val * 10 > 2147483647 && m > 0)
 			return ((int)-1);
-		if (val * 10 + (str[i] - '0') > 2147483648 && m < 0)
+		if (val * 10 > 2147483648 && m < 0)
 			return ((int)0);
 		val = val * 10 + (str[i] - '0');
 		i++;

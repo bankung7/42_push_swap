@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/push_swap.h"
+#include "../inc/push_swap.h"
 
 void	ft_small2(t_stk **list, char t, int i)
 {
@@ -41,14 +41,14 @@ void	ft_small3(t_stk **list, char t)
 	}
 }
 
-void	ft_small5(t_stk **stka, t_stk **stkb, t_stk *seqlist)
+void	ft_small5(t_stk **stka, t_stk **stkb, t_stk **seqlist)
 {
 	int		i;
 	int		mid;
 	t_stk	*head;
 
 	i = 2;
-	mid = ft_findmid(&seqlist, ft_findlowest(stka, 5), 2);
+	mid = ft_findmid(seqlist, ft_findlowest(stka, 5), 2);
 	head = *stka;
 	while (i > 0)
 	{
@@ -64,10 +64,10 @@ void	ft_small5(t_stk **stka, t_stk **stkb, t_stk *seqlist)
 	ft_push(stkb, stka, 'a', 1);
 }
 
-void ft_minisort(t_stk **stka, t_stk **stkb, int size)
+void	ft_minisort(t_stk **stka, t_stk **stkb, int size)
 {
-	int low;
-	int rot;
+	int	low;
+	int	rot;
 
 	rot = 0;
 	low = (*stka)->value;

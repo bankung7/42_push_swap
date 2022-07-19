@@ -8,13 +8,21 @@ RM = rm -rf
 
 LIBFT = libft
 
-SRCS = src/push_swap.c $(wildcard src/files/*.c)
+SRCS_DIR = srcs/
+SRCS = push_swap.c \
+		exit.c merge_sort.c operation.c \
+		operation2.c parsing.c small_sort.c \
+		sort.c structure.c util.c \
+		util2.c
+SRCS_B = checker.c \
+		exit.c merge_sort.c operation.c \
+		operation2.c parsing.c small_sort.c \
+		sort.c structure.c util.c \
+		util2.c
 
-SRCS_BONUS = src/checker.c $(wildcard src/files/*.c)
-
-OBJS = $(SRCS:.c=.o)
-
-OBJS_BONUS = $(SRCS_BONUS:.c=.o)
+OBJS_DIR = objs/
+OBJS = $(addprefix $(OBJS_DIR),$(SRCS:.c=.o))
+OBJS_B = $(addprefix $(OBJS_DIR),$(SRCS_B:.c=.o))
 
 all: $(NAME)
 
@@ -23,14 +31,18 @@ $(NAME): $(OBJS)
 	cp libft/libftprintf.a $(LIBFT).a
 	$(CC) $(CFLAGS) -g $(OBJS) $(LIBFT).a -o $(NAME)
 
-bonus: $(OBJS_BONUS)
+$(OBJS_DIR)%.o: $(SRCS_DIR)%.c
+	mkdir -p $(OBJS_DIR)
+	$(CC) $(CFLAGS) -c $^ -o $@
+
+bonus: $(OBJS_B)
 	make -C $(LIBFT)
 	cp libft/libftprintf.a $(LIBFT).a
-	$(CC) $(CFLAGS) -g $(OBJS_BONUS) $(LIBFT).a -o checker
+	$(CC) $(CFLAGS) -g $(OBJS_B) $(LIBFT).a -o checker
 
 clean:
 	make clean -C $(LIBFT)
-	$(RM) $(OBJS) $(OBJS_BONUS) *.dSYM
+	$(RM) $(OBJS_DIR) *.dSYM
 
 fclean: clean
 	make fclean -C $(LIBFT)
@@ -41,4 +53,4 @@ re: fclean all
 norm:
 	norminette $(wildcard *.c) $(wildcard *.h)
 
-.PHONY: all $(NAME) clean fclean re
+.PHONY: all clean fclean re

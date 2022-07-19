@@ -9,7 +9,7 @@
 /*   Updated: 2022/03/29 08:25:28 by vnilprap         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../includes/get_next_line.h"
+#include "libft.h"
 
 static	int	ft_chknl(char *s)
 {
@@ -84,10 +84,10 @@ static char	*ft_getbf(int fd, char *s, char *bf)
 	rd = 1;
 	while (rd > 0)
 	{
-		bf = malloc(sizeof(char) * (42 + 1));
+		bf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 		if (!bf)
 			return (0);
-		rd = read(fd, bf, 42);
+		rd = read(fd, bf, BUFFER_SIZE);
 		if (rd > 0)
 		{
 			bf[rd] = 0;
@@ -111,7 +111,7 @@ char	*get_next_line(int fd)
 	char	*tmp;
 
 	bf = 0;
-	if (fd < 0 || 42 <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
 	s = ft_getsub(0);
 	tmp = ft_getbf(fd, s, bf);

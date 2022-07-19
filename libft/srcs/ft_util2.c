@@ -9,7 +9,7 @@
 /*   Updated: 2022/05/17 21:01:17 by vnilprap         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../includes/ft_printf.h"
+#include "../inc/ft_printf.h"
 
 int	ft_pre(t_node *block, char *s, int sign, int sp)
 {

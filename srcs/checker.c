@@ -91,17 +91,15 @@ void	ft_checker(t_stk **list, t_stk **seqlist)
 	t_stk	*stkb;
 
 	stkb = 0;
-	if (ft_issort(list, 1) == 0)
-		ft_exit(1, "OK\n", list, seqlist);
 	s = get_next_line(0);
 	while (s != 0)
 	{
 		ft_checkinst(list, seqlist, s);
 		free(s);
 		s = get_next_line(0);
-		if (s == 0)
-			ft_runinst(list, &stkb, seqlist);
 	}
+	if (s == 0)
+		ft_runinst(list, &stkb, seqlist);
 }
 
 int	main(int argc, char **argv)

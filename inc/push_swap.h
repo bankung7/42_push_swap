@@ -16,8 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include "../libft/libft/libft.h"
-# include "../libft/includes/ft_printf.h"
-# include "../libft/includes/get_next_line.h"
+# include "../libft/inc/ft_printf.h"
 
 typedef struct s_stack
 {
@@ -43,7 +42,7 @@ t_stk	*ft_newinst(char *str);
 // small_sort.c
 void	ft_small2(t_stk **list, char t, int i);
 void	ft_small3(t_stk **list, char t);
-void	ft_small5(t_stk **stka, t_stk **stkb, t_stk *seqlist);
+void	ft_small5(t_stk **stka, t_stk **stkb, t_stk **seqlist);
 void	ft_minisort(t_stk **stka, t_stk **stkb, int size);
 
 // merge_sort.c

@@ -6,7 +6,7 @@
 #    By: vnilprap <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/16 18:18:35 by vnilprap          #+#    #+#              #
-#    Updated: 2022/03/12 20:28:54 by vnilprap         ###   ########.fr        #
+#    Updated: 2022/07/19 12:52:36 by vnilprap         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,41 +21,39 @@ SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
        ft_putendl_fd.c ft_putnbr_fd.c ft_striteri.c ft_strmapi.c \
 	   get_next_line.c
 
-SRCS_BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
+SRCS_B = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
 	     ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
-	     ft_lstmap.c
+	     ft_lstmap.c $(SRCS)
+
+OBJS_DIR = obj/
+
+OBJS = $(addprefix $(OBJS_DIR),$(SRCS:.c=.o))
+OBJS_B = $(addprefix $(OBJS_DIR),$(SRCS_B:.c=.o))
 
 CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
-OBJS = $(SRCS:.c=.o)
-
-OBJS_BONUS = $(SRCS_BONUS:.c=.o)
-
-RM = rm -f
+RM = rm -rf
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+	ar rc $(NAME) $(OBJS)
 
-bonus: $(OBJS) $(OBJS_BONUS)
-	ar rcs $(NAME) $(OBJS) $(OBJS_BONUS)
+$(OBJS_DIR)%.o: %.c
+	mkdir -p $(OBJS_DIR)
+	$(CC) $(CFLAGS) -c $^ -o $@
 
-comply:
-	$(CC) $(CFLAGS) main.c $(NAME) -o test
-
-t: comply
-	$(RM) main.o 
-	./test
+bonus: $(OBJS_B)
+	ar rc $(NAME) $(OBJS_B)
 
 clean:
-	$(RM) $(OBJS) $(OBJS_BONUS)
+	$(RM) $(OBJS_DIR)
 
 fclean: clean
 	$(RM) $(NAME) test
 
 re: fclean all
 
-.PHONY: all clean fclean comply ${NAME} t
+.PHONY: all clean fclean comply

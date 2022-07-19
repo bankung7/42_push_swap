@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/push_swap.h"
+#include "../inc/push_swap.h"
 
 int	ft_btoaswap(t_stk **stka, t_stk **stkb, t_stk **seqlist, int size)
 {

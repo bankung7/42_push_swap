@@ -9,7 +9,7 @@
 /*   Updated: 2022/05/17 21:00:41 by vnilprap         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../includes/ft_printf.h"
+#include "../inc/ft_printf.h"
 
 t_node	*ft_setnode(void)
 {
