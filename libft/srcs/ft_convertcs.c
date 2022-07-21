@@ -55,11 +55,9 @@ static char	*ft_getcs(t_node *block, va_list list)
 
 int	ft_converts(va_list list, t_node *block)
 {
-	int		i;
 	int		sp;
 	char	*s;
 
-	i = 0;
 	sp = 0;
 	s = ft_getcs(block, list);
 	if (s != 0 && (int)ft_strlen(s) > block->width)

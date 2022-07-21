@@ -13,7 +13,6 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	i;
 	char	*ptr;
 
 	if (!s)
@@ -25,7 +24,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	ptr = ft_calloc(sizeof(char), (len + 1));
 	if (!ptr)
 		return (0);
-	i = 0;
 	ft_memmove(ptr, (char *)(s + start), len);
 	return (ptr);
 }

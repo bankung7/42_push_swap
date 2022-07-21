@@ -15,6 +15,7 @@ NAME = libftprintf.a
 INC = inc/
 
 LIBFT = libft
+LIBFT_DIR = libft
 LIBFT_INC = $(LIBFT)/libft.h
 
 SRCS_DIR = srcs/
@@ -28,27 +29,29 @@ OBJS = $(addprefix $(OBJS_DIR),$(SRCS:.c=.o))
 CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
+NPD_FLAG = --no-print-directory
 
 RM = rm -rf
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	make -C $(LIBFT)
-	cp $(LIBFT)/libft.a $(NAME)
-	ar -rcs $(NAME) $(OBJS)
+	@make -C $(LIBFT_DIR) $(NPD_FLAG)
+	@cp $(LIBFT)/libft.a $(NAME)
+	@ar -rcs $(NAME) $(OBJS)
+	@echo "libftprintf is ready"
 
 $(OBJS_DIR)%.o: $(SRCS_DIR)%.c $(LIBFT_INC)
-	mkdir -p $(OBJS_DIR)
-	$(CC) $(CFLAGS) -I/$(INC) -c $< -o $@
+	@mkdir -p $(OBJS_DIR)
+	@$(CC) $(CFLAGS) -I/$(INC) -c $< -o $@
 
 clean:
-	make clean -C $(LIBFT)
-	$(RM) $(OBJS_DIR)
+	@make clean -C $(LIBFT) $(NPD_FLAG)
+	@$(RM) $(OBJS_DIR)
 
 fclean: clean
-	make fclean -C $(LIBFT)
-	$(RM) $(NAME)
+	@make fclean -C $(LIBFT) $(NPD_FLAG)
+	@$(RM) $(NAME)
 
 re: fclean all
 

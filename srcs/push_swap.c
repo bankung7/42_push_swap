@@ -36,13 +36,9 @@ void	ft_pushswap(t_stk **list, t_stk **seqlist)
 
 int	main(int argc, char **argv)
 {
-	int		i;
-	char	**arr;
 	t_stk	*list;
 	t_stk	*seqlist;
 
-	i = 0;
-	arr = 0;
 	list = 0;
 	seqlist = 0;
 	if (argc == 1 || argv[1] == 0)
